@@ -14,7 +14,7 @@ Joy2TwistNode::Joy2TwistNode(
     e_stop_trigger_client_ = nh_->serviceClient<std_srvs::Trigger>(e_stop_trigger_srv_);
   }
   joy_sub_ = nh_->subscribe("joy", 1, &Joy2TwistNode::joy_cb, this);
-  twist_pub_ = nh_->advertise<MsgTwist>("cmd_vel", 1);
+  twist_pub_ = nh_->advertise<MsgTwist>("smoother_cmd_vel", 1);
 }
 
 void Joy2TwistNode::load_parameters()
